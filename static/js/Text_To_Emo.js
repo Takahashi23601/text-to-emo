@@ -36,6 +36,11 @@
              num[x] = Number(data);
              equ_result()
          }).fail(function(){
+             data = "0.00000";
+             console.log('感情値：' + data);
+             $('.result_' + x).html(data);
+             num[x] = Number(data);
+             equ_result()
              console.log('failed');
          });
      });

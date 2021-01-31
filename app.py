@@ -24,8 +24,7 @@ def Text_Convert(text):
         return x
 
     except:
-        print("0.00000\n")
-        sys.exit()
+        return 0
 
 
 app = Flask(__name__)
@@ -33,7 +32,7 @@ socketio = SocketIO(app, async_mode=None)
 
 @app.route("/")
 def init():
-    return render_template('Text_To_Emo2.html')
+    return render_template('Text_To_Emo.html')
 
 
 @app.route("/input", methods=["POST"])
