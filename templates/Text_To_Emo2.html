@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="static/js/Text_To_Emo.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript"> 
+      $(function(){
+       $.ajaxSetup({
+       beforeSend : function(xhr) {
+           xhr.overrideMimeType('text/html;charset=utf-8');
+         }
+       });
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="static/css/Text_To_Emo.css">
+    <title>テキスト感情分析機</title>
+  </head>
+
+  <body>
+    <font face="ＭＳ Ｐ明朝">
+    <center><h1 class = "title">テキスト感情分析機</h1></center>
+    <h1 class = "inline">全体の感情値:</h1>
+    <h1 class = "feel_point inline" id = "equ">入力前</h1>
+    <div id="form_area">
+      <h4>以下に文章を入力してください。絶対感情値はその段落の感情値、相対感情値は文章全体の感情値とその段落の感情値との差を表示します。</h4>
+      <h2>段落１</h2>
+    <textarea id="inputform_1" placeholder="段落1" rows="3" style="width:70%; float:left;" onkeydown="textareaResize(event)" wrap="hard" onkeyup="send(1)"></textarea>
+    <h1 class = "inline">絶対感情値:</h1>
+    <h1 class = "result_1 feel_point inline">入力前</h1>
+    <br>
+    <h1 class = "inline">相対感情値:</h1>
+    <h1 class = " feel_point inline" id = "result_1_2">入力前</h1>
+    <br clear="left">
+    </div>
+    <input type="button" value="段落追加" onclick="addParagraph()">
+
+    <script type="text/javascript">
+    var str = document.getElementById( "inputform_1" ).value;
+   </script>
+   <a id="createFile" href="#" download="outFile.txt" value="テキストファイルに出力" onclick="dispText()">テキストファイルに出力</a>
+  </font>
+  </body>
+</html>
